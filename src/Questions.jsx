@@ -131,36 +131,36 @@ const Questions = () => {
 
   return (
     <div className="w-screen flex flex-col mt-20 items-center gap-16 ">
-      <h1 className=" font-caveat tracking-wide text-center text-slate-100 text-5xl">
+      <h1 className=" max-sm:text-2xl max-sm:relative font-caveat tracking-wide text-center text-slate-100 text-5xl">
         {" "}
         Step into the world of Quizzy and embrace the quest for knowledge!
       </h1>
-      <div className=" h-fit w-2/3 flex flex-col gap-10 bg-gray-600 rounded-xl overflow-hidden py-10 px-10">
+      <div className=" h-fit   max-sm:h-[30rem]  max-sm:w-3/4  max-sm:p-2 w-2/3 flex flex-col gap-10 bg-gray-600 rounded-xl overflow-hidden py-10 px-10">
         {submit ? (
-          <div className="h-52 flex flex-col items-center gap-10">
-            <h1 className="text-4xl">Your Score is Here!</h1>
+          <div className="h-52 max-sm:py-28 flex flex-col items-center  gap-10">
+            <h1 className="max-sm:text-xl  text-4xl">Your Score is Here!</h1>
             <h1 className="text-5xl">
               {answers.filter((answer) => answer.isTrue === true).length}/
               {length}
             </h1>
             <button
               onClick={()=>setSubmit(false)}
-              className="px-20 py-3 bg-gray-800 text-white rounded-lg hover:bg-slate-950 active:bg-slate-200"
+              className="px-20 py-2 bg-gray-800 text-white rounded-lg hover:bg-slate-950 active:bg-slate-200"
             >
               Go Back
             </button>
           </div>
         ) : (
           <>
-            <div className=" text-lg flex-grow h-14 bg-slate-700 p-3 border-2 rounded-md border-slate-800 text-cyan-100">
+            <div className=" max-sm:text-lg text-lg  flex-grow  h-14 bg-slate-700 p-3 border-2 rounded-md border-slate-800 text-cyan-100">
               {[count + 1]}. {questions[count].question}
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex  flex-col gap-3">
               {questions[count].options.map((option, i) => (
                 <div
                   onClick={() => ansChecker(i)}
                   key={i}
-                  className={`p-3 cursor-pointer rounded-md border-2  ${
+                  className={`p-3 max-sm:h-fit max-sm:text-sm  cursor-pointer rounded-md border-2  ${
                     answers[count].option === i
                       ? answers[count].isTrue
                         ? " bg-emerald-500 hover:bg-emerald-600"
@@ -173,17 +173,17 @@ const Questions = () => {
               ))}
             </div>
 
-            <div className=" flex justify-between ">
+            <div className=" flex   justify-between ">
               <button
                 onClick={previousHandler}
-                className=" px-5 py-2 bg-gray-800 text-white  rounded-lg  hover:bg-slate-950 active:bg-slate-200"
+                className="max-sm:py-1  max-sm:px-3  px-5 py-2 bg-gray-800 text-white  rounded-lg  hover:bg-slate-950 active:bg-slate-200"
               >
                 prev
               </button>
               {count !== length - 1 && (
                 <button
                   onClick={nextHandler}
-                  className="  px-5 py-2 bg-gray-800 text-white rounded-lg hover:bg-slate-950 active:bg-slate-200"
+                  className=" max-sm:py-1  max-sm:px-3  px-5 py-2 bg-gray-800 text-white rounded-lg  hover:bg-slate-950 active:bg-slate-200"
                 >
                   next
                 </button>
